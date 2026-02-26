@@ -1,0 +1,7 @@
+name: 'Conector API Node.js'
+type: module
+description: 'Módulo para conectar con Node'
+core_version_requirement: ^9 || ^10
+package: Custom
+libraries:
+  - conector_api/estilos-log

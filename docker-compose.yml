@@ -1,0 +1,61 @@
+services:
+  api:
+    build: .
+    restart: always  # <--- Esto obligará a Docker a levantar la API si se cae
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    volumes:
+      - .:/usr/src/app
+    command: npm run dev
+    networks:
+      - mi-red-segura
+
+  drupal:
+    image: drupal:10-apache
+    ports:
+      - "8080:80"
+    volumes:
+      - ./drupal-data/modules:/var/www/html/modules/custom
+      - ./drupal-data/sites:/var/www/html/sites
+    depends_on:
+      - api
+      - postgres
+    env_file:
+      - .env  # <--- Esto le dice a Docker que cargue el archivo .env en este contenedor
+    environment:
+      - GLPI_APP_TOKEN=${GLPI_APP_TOKEN}
+      - GLPI_USER_TOKEN=${GLPI_USER_TOKEN}
+      - GLPI_BASE_URL=${GLPI_BASE_URL}
+    networks:
+      - mi-red-segura
+
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: db-api-daw
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass1234
+    volumes:
+      - ./drupal-data/db_data:/var/lib/postgresql/data
+    networks:
+      - mi-red-segura
+
+  pgadmin:
+  # una vez levantado el docker-compose, se puede acceder a pgadmin en http://localhost:5050
+    image: dpage/pgadmin4
+    container_name: pgadmin_container
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+    networks:
+      - mi-red-segura
+
+networks:
+  mi-red-segura:
+    driver: bridge

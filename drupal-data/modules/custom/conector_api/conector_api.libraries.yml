@@ -1,0 +1,5 @@
+estilos-log:
+  version: 1.x
+  css:
+    component: # Cambiamos 'theme' por 'component' para mayor peso
+      css/estilos.css: { weight: 10 } # El peso alto asegura que cargue al final

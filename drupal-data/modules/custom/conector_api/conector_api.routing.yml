@@ -1,0 +1,59 @@
+conector_api.login:
+  path: '/api/entrar'
+  defaults:
+    _form: '\Drupal\conector_api\Form\LoginForm'
+    _title: 'Login API'
+  requirements:
+    _permission: 'access content'
+
+conector_api.historial:
+  path: '/api/ver-txt'
+  defaults:
+    _controller: '\Drupal\conector_api\Controller\HistorialController::mostrar'
+    _title: 'Historial de Logs'
+  requirements:
+    _permission: 'access content'
+
+conector_api.saludo:
+  path: '/api/saludar'
+  defaults:
+    _controller: '\Drupal\conector_api\Controller\HistorialController::saludar'
+    _title: 'Página de Saludo'
+  requirements:
+    _permission: 'access content'
+
+conector_api.info_apis:
+  path: '/api/informacion'
+  defaults:
+    _controller: '\Drupal\conector_api\Controller\HistorialController::infoApis'
+    _title: '¿Qué son las APIs?'
+  requirements:
+    _permission: 'access content'
+
+conector_api.buscar_glpi:
+  path: '/api/glpi/buscar/{email}'
+  defaults:
+    _controller: '\Drupal\conector_api\Controller\GlpiController::buscarUsuarioPorEmail'
+    _title: 'Buscador de Usuarios GLPI'
+  requirements:
+    _permission: 'access content' 
+    # Esta línea es CLAVE para que acepte puntos y arrobas en la URL
+    email: '.+'
+
+conector_api.tareas_usuario:
+  path: '/api/glpi/tareas/{id_usuario}'
+  defaults:
+    _controller: '\Drupal\conector_api\Controller\GlpiController::mostrarTareasUsuario'
+    _title: 'Tareas del Usuario'
+  requirements:
+    _permission: 'access content'
+
+conector_api.lista_trabajadores:
+  path: '/api/glpi/trabajadores'
+  defaults:
+    _controller: '\Drupal\conector_api\Controller\GlpiController::listarTrabajadoresIac'
+    _title: 'Listado de Trabajadores IAC'
+  requirements:
+    # 'access content' es el permiso básico para que cualquiera pueda verlo.
+    # Si quieres que solo lo vean administradores, usa 'administer site configuration'.
+    _permission: 'access content'

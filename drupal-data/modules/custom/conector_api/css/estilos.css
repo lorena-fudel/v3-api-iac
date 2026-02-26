@@ -1,0 +1,38 @@
+/* Contenedor principal responsive */
+.api-output {
+  background-color: #1e1e1e3b !important;
+  color: #33ff33 !important;
+  padding: 5% !important; /* Usamos porcentajes para el padding */
+  border-radius: 8px;
+  font-family: 'Courier New', Courier, monospace;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  max-width: 100%; /* No permite que la caja sea más ancha que la pantalla */
+  box-sizing: border-box; /* Asegura que el padding no sume ancho extra */
+}
+
+/* Caja de texto (pre) con ajuste de línea automático */
+.api-output pre {
+  background: #25252675 !important;
+  border: 1px solid #33ff33 !important;
+  color: #33ff33 !important;
+  padding: 15px;
+  
+  /* ESTOS SON LOS CAMBIOS PARA QUE NO SALGA DE LA CAJA */
+  white-space: pre-wrap;       /* Mantiene espacios pero salta de línea al final */
+  word-wrap: break-word;       /* Rompe palabras largas si es necesario */
+  overflow-wrap: break-word;   /* Refuerzo para navegadores modernos */
+  overflow-x: auto;            /* Si algo falla, añade scroll horizontal en lugar de salirse */
+  max-width: 100%;             /* Se ajusta al ancho del padre */
+}
+
+/* Ajustes para móviles */
+@media (max-width: 600px) {
+  .api-output {
+    padding: 10px !important;
+    font-size: 14px; /* Texto un poco más pequeño en móviles */
+  }
+  
+  .api-output h2 {
+    font-size: 1.2rem;
+  }
+}

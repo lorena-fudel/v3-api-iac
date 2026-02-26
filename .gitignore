@@ -1,0 +1,24 @@
+# 1. Ignorar TODO lo que hay dentro de drupal-data
+drupal-data/*
+
+# 2. PERO dejar que Git explore las subcarpetas necesarias para llegar al módulo
+!drupal-data/modules/
+!drupal-data/modules/custom/
+!drupal-data/modules/custom/**
+
+# 3. Reglas específicas de seguridad (esto siempre se ignora)
+drupal-data/db_data/
+drupal-data/sites/*/settings.php
+drupal-data/sites/*/default.settings.php
+drupal-data/sites/*/files/
+
+# Archivos de Node
+node_modules/
+.env
+
+# Archivos de control de sistema
+.DS_Store
+Thumbs.db
+hola.txt
+introducir-texto.txt
+
