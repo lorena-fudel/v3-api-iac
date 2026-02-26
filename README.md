@@ -1,4 +1,4 @@
-# 🚀 API IAC — Plataforma de Integración Node.js + Drupal + GLPI
+# 🚀 API IAC — Plataforma de Integración Node.js + Drupal + GLPI. 
 
 Plataforma de integración que conecta **Drupal 10** como frontend web con una **API REST en Node.js** como backend, usando **PostgreSQL** como base de datos compartida e integrando datos en tiempo real desde **GLPI** (sistema de gestión IT).
 
