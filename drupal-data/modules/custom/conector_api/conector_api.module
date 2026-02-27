@@ -1,0 +1,12 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function conector_api_theme($existing, $type, $theme, $path) {
+  return [
+    'node__noticia_interna' => [
+      'base hook' => 'node',
+    ],
+  ];
+}

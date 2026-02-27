@@ -30,23 +30,13 @@ conector_api.info_apis:
   requirements:
     _permission: 'access content'
 
-conector_api.buscar_glpi:
-  path: '/api/glpi/buscar/{email}'
-  defaults:
-    _controller: '\Drupal\conector_api\Controller\GlpiController::buscarUsuarioPorEmail'
-    _title: 'Buscador de Usuarios GLPI'
-  requirements:
-    _permission: 'access content' 
-    # Esta línea es CLAVE para que acepte puntos y arrobas en la URL
-    email: '.+'
-
 conector_api.tareas_usuario:
   path: '/api/glpi/tareas/{id_usuario}'
   defaults:
     _controller: '\Drupal\conector_api\Controller\GlpiController::mostrarTareasUsuario'
     _title: 'Tareas del Usuario'
   requirements:
-    _permission: 'access content'
+    _permission: 'ver tareas trabajadores glpi'
 
 conector_api.lista_trabajadores:
   path: '/api/glpi/trabajadores'
@@ -54,6 +44,15 @@ conector_api.lista_trabajadores:
     _controller: '\Drupal\conector_api\Controller\GlpiController::listarTrabajadoresIac'
     _title: 'Listado de Trabajadores IAC'
   requirements:
-    # 'access content' es el permiso básico para que cualquiera pueda verlo.
-    # Si quieres que solo lo vean administradores, usa 'administer site configuration'.
-    _permission: 'access content'
+    # CAMBIADO: Ahora usa tu permiso personalizado
+    _permission: 'access glpi workers list'
+
+conector_api.buscar_glpi:
+  path: '/api/glpi/buscar/{email}'
+  defaults:
+    _controller: '\Drupal\conector_api\Controller\GlpiController::buscarUsuarioPorEmail'
+    _title: 'Buscador de Usuarios GLPI'
+  requirements:
+    # CAMBIADO: Permiso específico para búsqueda
+    _permission: 'search glpi workers by email'
+    email: '.+'

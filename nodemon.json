@@ -1,0 +1,16 @@
+{
+    "ignore": [
+        "introducir-texto.txt",
+        "drupal-data/**",
+        "vendor/**",
+        "node_modules/**"
+    ],
+    "watch": [
+        "app.js",
+        "controllers/**",
+        "routes/**",
+        "middlewares/**",
+        "db.js"
+    ],
+    "ext": "js,json"
+}
