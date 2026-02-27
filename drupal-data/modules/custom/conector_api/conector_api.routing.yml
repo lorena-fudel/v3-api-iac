@@ -10,7 +10,7 @@ conector_api.historial:
   path: '/api/ver-txt'
   defaults:
     _controller: '\Drupal\conector_api\Controller\HistorialController::mostrar'
-    _title: 'Historial de Logs'
+    _title: 'Historial de Txt'
   requirements:
     _permission: 'access content'
 
