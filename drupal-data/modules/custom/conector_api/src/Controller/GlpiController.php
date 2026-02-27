@@ -84,9 +84,7 @@ class GlpiController extends ControllerBase {
     }
   }
 
-  /**
- * Obtiene todas las tareas asignadas a un ID de usuario concreto.
- */
+
   /**
  * Obtiene todas las tareas asignadas a un ID de usuario concreto.
  */
@@ -154,13 +152,7 @@ class GlpiController extends ControllerBase {
     }
   }
 
-  /**
- * Obtiene la lista de trabajadores (usuarios) con su email e ID.
- */
- 
-  /**
-   * Lista trabajadores con paginación de servidor y filtros de búsqueda.
-   */
+
   /**
    * Lista trabajadores únicamente con paginación.
    */

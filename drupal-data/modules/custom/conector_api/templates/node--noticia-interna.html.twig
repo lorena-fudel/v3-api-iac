@@ -1,0 +1,32 @@
+{# Plantilla optimizada para Noticia Interna #}
+<article{{ attributes.addClass('noticia-completa') }}>
+
+  <header>
+    {{ title_prefix }}
+    <h2{{ title_attributes }}>{{ label }}</h2>
+    {{ title_suffix }}
+  </header>
+
+  <div class="noticia-contenido" style="margin-bottom: 20px;">
+    {{ content.field_imagen_de_cabecera }}
+    {{ content.body }}
+  </div>
+
+  {# Usamos el objeto node para obtener el valor real del email de forma segura #}
+  {% set email = node.field_email_responsable_glpi.value %}
+
+  {% if email %}
+    <div class="enlace-glpi" style="margin-top: 25px; padding: 20px; background: #f0f7ff; border: 1px solid #0071bc; border-radius: 4px;">
+      <h3 style="margin-top: 0; color: #0071bc;">Información Técnica</h3>
+      <p>Responsable asignado: <strong>{{ email }}</strong></p>
+      
+      {# Generamos el enlace dinámico a tu controlador #}
+      <a href="{{ path('conector_api.buscar_glpi', {'email': email}) }}" 
+         class="button button--primary" 
+         style="background: #0071bc; color: white; padding: 10px 15px; text-decoration: none; border-radius: 3px; display: inline-block;">
+        Ver perfil técnico en GLPI →
+      </a>
+    </div>
+  {% endif %}
+
+</article>

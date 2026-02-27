@@ -9,7 +9,6 @@ use Drupal\Component\Utility\UrlHelper;
 
 class HistorialController extends ControllerBase
 {
-
   public function mostrar()
   {
     // 1. Recuperar el token de la sesión (el mismo nombre que usas en LoginForm)

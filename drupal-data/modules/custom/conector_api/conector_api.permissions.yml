@@ -1,0 +1,14 @@
+#EN DRUPAL
+# Define el permiso personalizado para ver el listado
+access glpi workers list:
+  title: 'API Ver el listado de trabajadores de GLPI'
+  description: 'Permite a los usuarios acceder a la tabla de trabajadores IAC.'
+
+# Define el permiso para buscar por email
+search glpi workers by email:
+  title: 'API Buscar trabajadores por email'
+  description: 'Permite realizar búsquedas individuales de personal.' 
+
+ver tareas trabajadores glpi:
+  title: 'API Ver tareas trabajadores GLPI'
+  description: 'Permite ver las tareas asignadas a un trabajador de GLPI.'
